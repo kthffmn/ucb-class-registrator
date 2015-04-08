@@ -1,0 +1,14 @@
+{
+  "name": "UCB Sketch Class",
+  "manifest_version": 1,
+  "description": "Clicks 'Register' on a UCB class page",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches":["http://newyork.ucbtrainingcenter.com/courses/view/*"],
+      "js": ["sketch-301.js"]
+    }
+  ], "permissions": [
+  		"tabs", "http://newyork.ucbtrainingcenter.com/courses/view/*"
+  ]
+}
