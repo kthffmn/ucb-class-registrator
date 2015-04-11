@@ -1,14 +1,11 @@
-require 'bundler/setup'
-Bundler.require
-require 'open-uri'
-Dotenv.load
-require 'uri'
-
 class ClassChecker
+
   BASE_URL = "http://ucbcomedy.com"
   SEARCH_URL = BASE_URL + "/global_search?global_query="
+  
   INTERESTED_CLASSES = ["sketch 301", "improv 101"]
-  attr_reader :client
+
+  attr_reader :client, :user_id
   attr_accessor :underline
 
   def self.run
@@ -16,8 +13,9 @@ class ClassChecker
     @checker.start_following
   end
 
-  def initialize
+  def initialize(user_id=289051336)
     @client = client
+    @user_id = user_id
   end
 
   def client
@@ -33,7 +31,7 @@ class ClassChecker
 
   def start_following
     puts "Following @UCBClassesNYC"
-    client.follow(289051336) do |status|
+    client.follow(user_id) do |status|
       tweet = status.text.downcase
       right_class = false
       INTERESTED_CLASSES.each {|c| right_class = true if tweet.include?(c) }
@@ -91,6 +89,7 @@ class ClassChecker
       person_name = person.children.first.text.downcase
       if person_name.include?(name.downcase)
         path = person.parent.parent.attributes["data-link"].value
+        format_with_underline("#{name}'s Page Found!")
         return BASE_URL + path
       end
     end
@@ -110,4 +109,5 @@ class ClassChecker
     name[0] = "" if name[0] == " "
     name
   end
+
 end
