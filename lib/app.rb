@@ -7,7 +7,7 @@ require 'uri'
 class ClassChecker
   BASE_URL = "http://ucbcomedy.com"
   SEARCH_URL = BASE_URL + "/global_search?global_query="
-  
+  INTERESTED_CLASSES = ["sketch 301", "improv 101"]
   attr_reader :client
   attr_accessor :underline
 
@@ -34,7 +34,10 @@ class ClassChecker
   def start_following
     puts "Following @UCBClassesNYC"
     client.follow(289051336) do |status|
-      if status.text.downcase.include?("sketch 301")
+      tweet = status.text.downcase
+      right_class = false
+      INTERESTED_CLASSES.each {|c| right_class = true if tweet.include?(c) }
+      if right_class
         url = status.urls[0].attrs[:expanded_url]
         Launchy.open(url)
         get_class_info(url)
@@ -107,7 +110,4 @@ class ClassChecker
     name[0] = "" if name[0] == " "
     name
   end
-
 end
-
-ClassChecker.new.get_class_info("http://newyork.ucbtrainingcenter.com/courses/view/11295")
