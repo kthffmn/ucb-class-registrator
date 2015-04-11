@@ -3,4 +3,4 @@ Bundler.require
 
 Dotenv.load
 
-Dir["/lib/*.rb"].each {|file| require file }
+require_relative "../lib/app"

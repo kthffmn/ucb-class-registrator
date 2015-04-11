@@ -1,0 +1,1 @@
+setTimeout(nextPage, 250);
