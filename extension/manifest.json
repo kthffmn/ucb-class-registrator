@@ -1,22 +1,48 @@
 {
+  "manifest_version": 2,
   "name": "UCB Sketch Class",
-  "manifest_version": 1,
-  "description": "Clicks 'Register' on a UCB class page",
+  "description": "Goes through the first 3 steps of registering for a UCB class",
   "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches":["http://newyork.ucbtrainingcenter.com/courses/view/*"],
-      "js": ["functions.js", "click-register.js"]
+      "js": [
+        "javascripts/jquery.min.js",
+        "javascripts/functions.js",
+        "javascripts/01-click-register.js"
+      ]
     },
     {
       "matches":["http://newyork.ucbtrainingcenter.com/courses/policies/*"],
-      "js": ["functions.js", "click-agree.js"]
+      "js": [
+        "javascripts/jquery.min.js",
+        "javascripts/functions.js",
+        "javascripts/02-click-agree.js"
+      ]
     },
     {
       "matches":["https://secure.ucbtheatre.com/courses/register/*"],
-      "js": ["functions.js", "fill-in-form.js"]
+      "js": [
+        "javascripts/jquery.min.js",
+        "javascripts/functions.js",
+        "javascripts/03-fill-in-info-form.js"
+      ]
+    }
+    {
+      "matches":["https://secure.ucbtheatre.com/registrations/checkout/*"],
+      "js": [
+        "javascripts/jquery.min.js",
+        "javascripts/functions.js",
+        "javascripts/04-fill-in-payment-form.js"
+      ]
     }
   ], "permissions": [
-  	"tabs", "http://newyork.ucbtrainingcenter.com/courses/view/*"
+  	"tabs",
+    "http://newyork.ucbtrainingcenter.com/courses/*",
+    "https://secure.ucbtheatre.com/*"
   ]
 }

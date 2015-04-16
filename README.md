@@ -2,13 +2,16 @@
 
 ## About
 
-This app is in two parts: a small Ruby app and a JavaScript extention.
+This app is in two parts: a small Ruby app and a JavaScript Chrome extention.
 
 ## Ruby App
 
 This app follows the Twitter account for [@UCBClasses](https://twitter.com/UCBClassesNYC).
 
-If @UCBClasses tweets about a Sketch 301 class, the app opens the link to the class' show page in the browser. 
+If @UCBClasses tweets about a particular class, the app opens the link to the class' show page in the browser. 
+
+It then prints out the class title, the class times, and opens up the teacher's page on [UCBComedy.com](http://ucbcomedy.com/).
+
 ## JavaScript App
 
 This script double checks for whether a page in the browser is a show page for a Sketch 301 class at UCB's New York Training Center.

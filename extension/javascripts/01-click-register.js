@@ -4,4 +4,9 @@ function isSketch301() {
   if(isSketch301) nextPage();
 }
 
-setTimeout(isSketch301, 250);
+function testing() {
+  var className = $("h2").text().toLowerCase();
+  nextPage();
+}
+
+setTimeout(testing, 250);

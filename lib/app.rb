@@ -31,15 +31,18 @@ class ClassChecker
 
   def start_following
     puts "Following @UCBClassesNYC"
+    i = 1
     client.follow(user_id) do |status|
+      puts "#{i}. #{status.text}\n"
       tweet = status.text.downcase
       right_class = false
-      INTERESTED_CLASSES.each {|c| right_class = true if tweet.include?(c) }
+      INTERESTED_CLASSES.each {|c| right_class = true if tweet.include?(c.downcase) }
       if right_class
         url = status.urls[0].attrs[:expanded_url]
         Launchy.open(url)
         get_class_info(url)
       end
+      i += 1
     end
   end
 
