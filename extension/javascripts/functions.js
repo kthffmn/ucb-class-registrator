@@ -20,7 +20,7 @@ function fillInPaymentFields(data) {
   fillInFields(data, REGISTER);
 }
 
-function fillInExpirationDates(data)
+function fillInExpirationDates(data) {
   var selector = REGISTER + "expiration][";
   fillInFields(data, selector);
 }

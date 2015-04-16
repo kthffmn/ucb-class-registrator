@@ -13,9 +13,9 @@ var data = {
 function fillAndClick(data) {
   if ($(".submit").children()[0].value === "Continue Registration") {
     fillInRegistrationFields(data);
-    $(".submit").children()[1].click();
-  } else {
     nextPage();
+  } else {
+    $(".submit").children()[1].click();
   }
 }
 

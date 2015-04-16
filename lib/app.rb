@@ -33,7 +33,8 @@ class ClassChecker
     puts "Following @UCBClassesNYC"
     i = 1
     client.follow(user_id) do |status|
-      puts "#{i}. #{status.text}\n"
+      puts "\n #{i}. #{status.text}\n"
+      puts "  - #{Time.now.strftime("%l:%M %p")}\n"
       tweet = status.text.downcase
       right_class = false
       INTERESTED_CLASSES.each {|c| right_class = true if tweet.include?(c.downcase) }
