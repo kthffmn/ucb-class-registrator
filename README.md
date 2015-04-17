@@ -19,4 +19,4 @@ It then prints out the class title, the class times, and opens up the teacher's 
 
 This script double checks for whether a page in the browser is a show page for a Sketch 301 or Improv 101 class at UCB's New York Training Center.
 
-If it is a Sketch 301/Improv 101 class, it then clicks "Register" on the first page, "Agree" on the policy page, fills in the form on the register page with the user's info, then clicks "Continue Registration".
+If it is a Sketch 301/Improv 101 class, it then clicks "Register" on the first page, "Agree" on the policy page, fills in the form on the register page with the user's info, then clicks "Continue Registration". It then fills in the payment form with my payment info.
