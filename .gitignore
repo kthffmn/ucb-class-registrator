@@ -1,3 +1,4 @@
 .env
 
-Gemfile.lock
+ruby-app/Gemfile.lock
+ruby-app/.env
