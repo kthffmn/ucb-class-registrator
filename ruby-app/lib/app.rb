@@ -48,7 +48,7 @@ class ClassChecker
       if right_class
         url = status.urls[0].attrs[:expanded_url]
         Launchy.open(url)
-        get_class_info(url)
+        InfoFetcher.run(url)
       end
       i += 1
     end

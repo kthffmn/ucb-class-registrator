@@ -21,7 +21,7 @@ class InfoFetcher
   end
 
   def get_class_info
-    save_html
+    self.html = save_html(url)
     save_class_title
     build_underline
     format_with_underline(class_title)
@@ -29,8 +29,8 @@ class InfoFetcher
     open_teacher_page
   end
 
-  def save_html
-    self.html = Nokogiri::HTML(open(url))
+  def save_html(url)
+    Nokogiri::HTML(open(url))
   end
 
   def print_class_times
@@ -58,9 +58,9 @@ class InfoFetcher
   end
 
   def search_for_url
+    html = save_html(SEARCH_URL + URI.encode(teacher))
     html.search("h3").each do |person|
       person_name = person.children.first.text.downcase
-      binding.pry
       if person_name.include?(teacher.downcase)
         path = person.parent.parent.attributes["data-link"].value
         format_with_underline("#{teacher}'s page found!")
