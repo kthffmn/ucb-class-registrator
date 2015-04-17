@@ -1,8 +1,11 @@
-# UCB Sketch 301
+# UCB Class Registrator
 
 ## About
 
-This app is in two parts: a small Ruby app and a JavaScript Chrome extention.
+This app is in two parts.
+
+1. Ruby App
+2. Chrome Extention
 
 ## Ruby App
 
@@ -12,8 +15,8 @@ If @UCBClasses tweets about a particular class, the app opens the link to the cl
 
 It then prints out the class title, the class times, and opens up the teacher's page on [UCBComedy.com](http://ucbcomedy.com/).
 
-## JavaScript App
+## Chrome Extention
 
-This script double checks for whether a page in the browser is a show page for a Sketch 301 class at UCB's New York Training Center.
+This script double checks for whether a page in the browser is a show page for a Sketch 301 or Improv 101 class at UCB's New York Training Center.
 
-If it is a Sketch 301 class, it then clicks "Register" on the first page, "Agree" on the policy page, fills in the form on the register page with the user's info, then clicks "Continue Registration".
+If it is a Sketch 301/Improv 101 class, it then clicks "Register" on the first page, "Agree" on the policy page, fills in the form on the register page with the user's info, then clicks "Continue Registration".
